@@ -1,8 +1,7 @@
 require('dotenv').config()
-const express = require('express') || 5000
+const express = require('express')
 const sequelize = require('./db')
 const models = require('./db')
-const PORT = process.env.port
 const cors = require('cors')
 const fileUpload = require('express-fileupload')
 const router = require('./routes/index')
@@ -23,7 +22,7 @@ const start = async () => {
     try {
         await sequelize.authenticate()
         await sequelize.sync()
-        app.listen(PORT, () => {console.log(`Server started http://localhost:${PORT}/`)})
+        app.listen(PORT, () => {console.log(`Server started http://${process.env.port}:${process.env.port}/`)})
     } catch (e) {
         console.error(e)
     }
