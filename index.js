@@ -17,10 +17,6 @@ app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(fileUpload({}))
 app.use('/api', router)
 
-app.get('/*', (request, response) => {
-    response.sendFile(path.join(__dirname, '../public/index.html'));
-});
-
 app.use(errorHandler)
 
 const start = async () => {
