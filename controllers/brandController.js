@@ -3,8 +3,8 @@ const ApiError = require('../error/ApiError')
 
 class BrandController {
     async create(req, res) {
-        const {rate} = req.body
-        const brand = await Brand.create({rate: rate})
+        const {name} = req.body
+        const brand = await Brand.create({name: name})
         return res.json(brand)
     }
 
